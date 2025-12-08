@@ -47,18 +47,13 @@ export default {
       },
       "items": [
         {
-          "type": "docSidebar",
-          "sidebarId": "defaultSidebar",
+          "type": "doc",
+          "docId": "chapter1",
           "position": "left",
-          "label": "Tutorial"
+          "label": "Chapters"
         },
         {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
-        },
-        {
-          "href": "https://github.com/facebook/docusaurus",
+          "href": "https://github.com/NoumanAnwar/hackathon-1",
           "label": "GitHub",
           "position": "right"
         }
@@ -72,8 +67,8 @@ export default {
           "title": "Docs",
           "items": [
             {
-              "label": "Tutorial",
-              "to": "/docs/intro"
+              "label": "Chapters",
+              "to": "/docs/chapter1"
             }
           ]
         },
@@ -98,12 +93,8 @@ export default {
           "title": "More",
           "items": [
             {
-              "label": "Blog",
-              "to": "/blog"
-            },
-            {
               "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
+              "href": "https://github.com/NoumanAnwar/hackathon-1"
             }
           ]
         }
