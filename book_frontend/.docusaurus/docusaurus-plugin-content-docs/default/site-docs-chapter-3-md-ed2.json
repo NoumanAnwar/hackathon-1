@@ -1,0 +1,23 @@
+{
+  "id": "chapter3",
+  "title": "Chapter 3: URDF for Humanoids",
+  "description": "In the previous chapters, we explored the ROS 2 communication graph and implemented simple Python nodes. Now, we shift our focus to representing the physical structure of a robot using the Unified Robot Description Format (URDF). URDF is an XML format used in ROS to describe all aspects of a robot, including its geometry, kinematics, and dynamics. It's crucial for visualization in tools like RViz2 and for physics simulation.",
+  "source": "@site/docs/chapter3.md",
+  "sourceDirName": ".",
+  "slug": "/chapter3",
+  "permalink": "/docs/chapter3",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-org/your-repo/tree/main/book_frontend/docs/chapter3.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Chapter 2: Python Agents with rclpy",
+    "permalink": "/docs/chapter2"
+  }
+}

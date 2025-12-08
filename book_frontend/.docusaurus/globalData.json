@@ -1,0 +1,43 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "chapter1",
+          "docs": [
+            {
+              "id": "chapter1",
+              "path": "/docs/chapter1",
+              "sidebar": "defaultSidebar"
+            },
+            {
+              "id": "chapter2",
+              "path": "/docs/chapter2",
+              "sidebar": "defaultSidebar"
+            },
+            {
+              "id": "chapter3",
+              "path": "/docs/chapter3",
+              "sidebar": "defaultSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "defaultSidebar": {
+              "link": {
+                "path": "/docs/chapter1",
+                "label": "chapter1"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

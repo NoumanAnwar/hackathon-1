@@ -1,55 +1,91 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report:
+Version change: None (initial creation) -> 1.0.0
+Modified principles:
+  - PROJECT_NAME -> AI/Spec book + RAG chatbot on Physical AI & Humanoid Robotics
+  - PRINCIPLE_1_NAME -> Technical Accuracy
+  - PRINCIPLE_1_DESCRIPTION -> All content and code MUST adhere to technical accuracy in the domains of ROS 2, Isaac, Gazebo, and Unity. Claims and simulations MUST be verifiable and grounded in established principles.
+  - PRINCIPLE_2_NAME -> Clarity for Engineering Students
+  - PRINCIPLE_2_DESCRIPTION -> Content and explanations MUST be clear, structured, and easily understandable for engineering students. Consistent terminology (VLA, SLAM, Nav2) MUST be used throughout.
+  - PRINCIPLE_3_NAME -> Spec-Driven Development & Traceability
+  - PRINCIPLE_3_DESCRIPTION -> All content, code, and RAG answers MUST be traceable to defined specifications and primary sources. The project MUST maintain a clear, structured learning flow.
+  - PRINCIPLE_4_NAME -> Reproducibility & Clean Code
+  - PRINCIPLE_4_DESCRIPTION -> All code and simulation examples MUST be reproducible in a clean environment. Diagrams MUST accurately match real robot architectures.
+  - PRINCIPLE_5_NAME -> Grounded RAG Answers & Citation
+  - PRINCIPLE_5_DESCRIPTION -> RAG answers MUST be based *only* on book content, cite section/page (IEEE style), and allow for "Not in book" responses. A minimum of 60% of primary documentation from ROS2/Isaac/Gazebo/Unity/OpenAI MUST be used as sources.
+  - PRINCIPLE_6_NAME -> Ethics & Safety
+  - PRINCIPLE_6_DESCRIPTION -> Development MUST prioritize simulation-first and safe robotics guidance.
+  - SECTION_2_NAME -> Constraints & Standards
+  - SECTION_2_CONTENT ->
+      - Book: 25k–40k words, Docusaurus format.
+      - Modules: ROS2, Gazebo/Unity, Isaac, VLA, Capstone.
+      - Delivery: GitHub Pages deployment + repository.
+      - Standards: Official documentation and academic papers as primary sources.
+  - SECTION_3_NAME -> Success Criteria
+  - SECTION_3_CONTENT ->
+      - Claims verifiable.
+      - Running simulation examples.
+      - Stable RAG chatbot embedded in the book.
+      - Low-latency RAG answers.
+      - Clear, structured learning flow.
+  - GOVERNANCE_RULES ->
+      - The constitution supersedes all other practices.
+      - Amendments require documentation, approval, and a migration plan.
+      - All PRs/reviews MUST verify compliance.
+      - Complexity MUST be justified.
+  - CONSTITUTION_VERSION -> 1.0.0
+  - RATIFICATION_DATE -> 2025-12-07
+  - LAST_AMENDED_DATE -> 2025-12-07
+Added sections: None
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md: ⚠ pending
+  - .specify/templates/spec-template.md: ⚠ pending
+  - .specify/templates/tasks-template.md: ⚠ pending
+  - .specify/templates/commands/*.md: ⚠ pending
+Follow-up TODOs: None
+-->
+# AI/Spec book + RAG chatbot on Physical AI & Humanoid Robotics Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Technical Accuracy
+All content and code MUST adhere to technical accuracy in the domains of ROS 2, Isaac, Gazebo, and Unity. Claims and simulations MUST be verifiable and grounded in established principles.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Clarity for Engineering Students
+Content and explanations MUST be clear, structured, and easily understandable for engineering students. Consistent terminology (VLA, SLAM, Nav2) MUST be used throughout.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Spec-Driven Development & Traceability
+All content, code, and RAG answers MUST be traceable to defined specifications and primary sources. The project MUST maintain a clear, structured learning flow.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Reproducibility & Clean Code
+All code and simulation examples MUST be reproducible in a clean environment. Diagrams MUST accurately match real robot architectures.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Grounded RAG Answers & Citation
+RAG answers MUST be based *only* on book content, cite section/page (IEEE style), and allow for "Not in book" responses. A minimum of 60% of primary documentation from ROS2/Isaac/Gazebo/Unity/OpenAI MUST be used as sources.
 
-### [PRINCIPLE_6_NAME]
+### Ethics & Safety
+Development MUST prioritize simulation-first and safe robotics guidance.
 
+## Constraints & Standards
 
-[PRINCIPLE__DESCRIPTION]
+- Book: 25k–40k words, Docusaurus format.
+- Modules: ROS2, Gazebo/Unity, Isaac, VLA, Capstone.
+- Delivery: GitHub Pages deployment + repository.
+- Standards: Official documentation and academic papers as primary sources.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Success Criteria
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Claims verifiable.
+- Running simulation examples.
+- Stable RAG chatbot embedded in the book.
+- Low-latency RAG answers.
+- Clear, structured learning flow.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- The constitution supersedes all other practices.
+- Amendments require documentation, approval, and a migration plan.
+- All PRs/reviews MUST verify compliance.
+- Complexity MUST be justified.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-07

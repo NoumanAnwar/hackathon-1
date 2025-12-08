@@ -1,0 +1,28 @@
+[project]
+name = "rag_backend"
+version = "0.1.0"
+description = "FastAPI RAG backend for the ROS 2 book"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "chromadb",
+    "google-generativeai", # Corrected to the actual Google AI SDK for Python
+    "pydantic"
+]
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pytest",
+    "flake8"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_backend"]

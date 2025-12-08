@@ -1,0 +1,27 @@
+{
+  "id": "chapter2",
+  "title": "Chapter 2: Python Agents with rclpy",
+  "description": "In Chapter 1, we learned about the theoretical concepts of ROS 2 nodes, topics, and services. Now, we'll put that knowledge into practice by implementing simple Python nodes using rclpy, the ROS 2 client library for Python. We will create a publisher (talker) and a subscriber (listener) to demonstrate inter-node communication.",
+  "source": "@site/docs/chapter2.md",
+  "sourceDirName": ".",
+  "slug": "/chapter2",
+  "permalink": "/docs/chapter2",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-org/your-repo/tree/main/book_frontend/docs/chapter2.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Chapter 1: ROS 2 Graph Basics - Nodes, Topics, Services",
+    "permalink": "/docs/chapter1"
+  },
+  "next": {
+    "title": "Chapter 3: URDF for Humanoids",
+    "permalink": "/docs/chapter3"
+  }
+}

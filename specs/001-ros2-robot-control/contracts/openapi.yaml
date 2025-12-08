@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: "Book RAG Backend API"
+  version: "1.0.0"
+  description: "API for querying the AI/Spec book content using a RAG model."
+paths:
+  /api/query:
+    post:
+      summary: "Ask a question to the RAG model"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+        '422':
+          description: "Validation Error"
+components:
+  schemas:
+    QueryRequest:
+      type: "object"
+      properties:
+        query:
+          type: "string"
+          description: "The user's question."
+          example: "What is a ROS 2 node?"
+        session_id:
+          type: "string"
+          description: "A session identifier for conversation history."
+          example: "abc-123-xyz"
+      required:
+        - query
+    QueryResponse:
+      type: "object"
+      properties:
+        answer:
+          type: "string"
+          description: "The generated answer from the RAG model."
+          example: "A ROS 2 node is an executable process that performs computation."
+        source:
+          type: "string"
+          description: "The chapter and section the answer was drawn from, for citation."
+          example: "Chapter 1, Section: 'ROS 2 Graph Basics'"
