@@ -1,12 +1,11 @@
 import os
-import asyncio
 import uuid
-from rag_backend.src.services.content_loader import load_markdown_files
-from rag_backend.src.services.text_splitter import TextSplitter
-from rag_backend.src.services.embedding_service import EmbeddingService
-from rag_backend.src.services.vector_store import VectorStore
+from src.services.content_loader import load_markdown_files
+from src.services.text_splitter import TextSplitter
+from src.services.embedding_service import EmbeddingService
+from src.services.vector_store import VectorStore
 
-async def ingest_book_content(
+def ingest_book_content(
     docs_path: str,
     chroma_persist_dir: str = "./chroma_db",
     collection_name: str = "book_rag_collection"
@@ -29,7 +28,7 @@ async def ingest_book_content(
     embedding_service = EmbeddingService()
     # Extract just the content for embedding
     chunk_contents = [chunk["content"] for chunk in all_chunks]
-    embeddings = await embedding_service.get_embeddings(chunk_contents)
+    embeddings = embedding_service.get_embeddings(chunk_contents)
     print(f"Generated {len(embeddings)} embeddings.")
 
     # 4. Prepare documents for VectorStore
@@ -54,31 +53,30 @@ async def ingest_book_content(
 if __name__ == "__main__":
     # Example usage:
     # Ensure GEMINI_API_KEY is set in your environment
-    
-    # Create a dummy docs directory and a markdown file for testing
+
+    # Set a real API key or ensure env var is set
+    if not os.getenv("GEMINI_API_KEY"):
+        print("Warning: GEMINI_API_KEY environment variable is not set.")
+        print("Please set it before running ingestion: export GEMINI_API_KEY=set your gemini api key")
+        exit(1)
+
+    # Define paths
     current_dir = os.path.dirname(__file__)
-    project_root = os.path.abspath(os.path.join(current_dir, "..", "..")) # Project root for ingest.py
+    project_root = os.path.abspath(os.path.join(current_dir, "..")) # Project root for rag_backend
     book_frontend_docs_path = os.path.join(project_root, "book_frontend", "docs")
     chroma_db_path = os.path.join(project_root, "chroma_db")
 
-    os.makedirs(book_frontend_docs_path, exist_ok=True)
-    with open(os.path.join(book_frontend_docs_path, "dummy_chapter.md"), "w", encoding='utf-8') as f:
-        f.write("# Dummy Chapter\n\nThis is some dummy content for testing the ingestion script. It has multiple sentences to ensure chunking works.")
-
-    # Set a dummy API key for local testing (replace with actual key or ensure env var is set)
-    os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY", "dummy_key_for_testing")
+    # Make sure the docs directory exists
+    if not os.path.exists(book_frontend_docs_path):
+        print(f"Error: Docs directory does not exist at {book_frontend_docs_path}")
+        exit(1)
 
     # Clean up previous chroma_db if exists
     if os.path.exists(chroma_db_path):
         import shutil
         shutil.rmtree(chroma_db_path)
 
-    asyncio.run(ingest_book_content(
+    ingest_book_content(
         docs_path=book_frontend_docs_path,
         chroma_persist_dir=chroma_db_path
-    ))
-
-    # Clean up dummy files
-    os.remove(os.path.join(book_frontend_docs_path, "dummy_chapter.md"))
-    os.rmdir(book_frontend_docs_path) # Only removes if empty
-    # shutil.rmtree(chroma_db_path) # Optionally clean up chroma db after test
+    )

@@ -18,8 +18,13 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/chapter1">
-            Read Chapter 1 📖
+            to="/docs/module1/intro">
+            Start Learning 🚀
+          </Link>
+          <Link
+            className="button button--primary button--lg"
+            to="/docs/module1/chapter1">
+            Begin Reading 📖
           </Link>
         </div>
       </div>
@@ -31,16 +36,46 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Welcome to ${siteConfig.title}`}
+      description="Physical AI & Humanoid Robotics Book - From Pixels to Actions">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <section className={styles.featuresSection}>
+          <div className="container padding-horiz--md">
+            <div className="row">
+              <div className="col col--4">
+                <div className="text--center padding-horiz--md">
+                  <h3>4 Comprehensive Modules</h3>
+                  <p>From ROS 2 fundamentals to Vision-Language-Action systems</p>
+                </div>
+              </div>
+              <div className="col col--4">
+                <div className="text--center padding-horiz--md">
+                  <h3>AI-Powered Learning</h3>
+                  <p>Integrated RAG chatbot for personalized learning experience</p>
+                </div>
+              </div>
+              <div className="col col--4">
+                <div className="text--center padding-horiz--md">
+                  <h3>Advanced Features</h3>
+                  <p>Personalization, multi-language support, and more</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={clsx(styles.featuresSection, "container")}>
+          <HomepageFeatures />
+        </section>
+
         {/* Add the Chatbox component here */}
         <section className={styles.chatboxSection}>
-          <div className="container">
-            <h2 className="text--center">Ask the ROS 2 Module RAG Chatbot!</h2>
-            <Chatbox />
+          <div className="container padding-horiz--md">
+            <h2 className="text--center padding-bottom--md">Ask the Physical AI & Humanoid Robotics RAG Chatbot</h2>
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <Chatbox />
+            </div>
           </div>
         </section>
       </main>

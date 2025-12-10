@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ROS 2 Module',
-  tagline: 'The Robotic Nervous System',
+  title: 'Physical AI & Humanoid Robotics Book',
+  tagline: 'From Pixels to Actions',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -38,6 +38,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/your-org/your-repo/tree/main/book_frontend/',
         },
@@ -55,23 +56,48 @@ const config = {
     ],
   ],
 
+  // Add custom theme configuration
+  themes: [
+    // ... other themes
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'ROS 2 Module',
+        title: 'Physical AI & Humanoid Robotics',
         logo: {
-          alt: 'ROS 2 Module Logo',
+          alt: 'Physical AI & Humanoid Robotics Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
-            type: 'doc',
-            docId: 'chapter1',
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Chapters',
+            label: 'Modules',
+          },
+          {
+            to: '/docs/module1/intro',
+            label: 'Module 1',
+            position: 'left',
+          },
+          {
+            to: '/docs/module2/intro',
+            label: 'Module 2',
+            position: 'left',
+          },
+          {
+            to: '/docs/module3/intro',
+            label: 'Module 3',
+            position: 'left',
+          },
+          {
+            to: '/docs/module4/intro',
+            label: 'Module 4',
+            position: 'left',
           },
           {
             href: 'https://github.com/NoumanAnwar/hackathon-1',
@@ -88,7 +114,7 @@ const config = {
             items: [
               {
                 label: 'Chapters',
-                to: '/docs/chapter1',
+                to: '/docs/module1/chapter1',
               },
             ],
           },

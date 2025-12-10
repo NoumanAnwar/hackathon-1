@@ -1,15 +1,26 @@
 import os
 import chromadb
+import google.generativeai as genai
 from typing import List, Dict, Union
 from chromadb.utils import embedding_functions
 
-# A placeholder embedding function for ChromaDB initialization.
-# In a real scenario, this would be the Gemini embedding function.
-class PlaceholderEmbeddingFunction(embedding_functions.EmbeddingFunction):
+# A custom embedding function that uses the Gemini API
+class GeminiEmbeddingFunction(embedding_functions.EmbeddingFunction):
+    def __init__(self):
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable not set for embedding function.")
+        genai.configure(api_key=api_key)
+        self.model_name = "models/embedding-001"
+
     def __call__(self, texts: List[str]) -> List[List[float]]:
-        # This is a dummy implementation. Replace with actual Gemini embedding.
-        # Ensure the length matches the expected embedding dimension (e.g., 768 for small models)
-        return [[0.0] * 768 for _ in texts] # Return list of dummy embeddings
+        # Generate embeddings for the list of texts using Gemini API
+        result = genai.embed_content(
+            model=self.model_name,
+            content=texts,
+            task_type="RETRIEVAL_DOCUMENT"
+        )
+        return result['embedding']
 
 class VectorStore:
     """
@@ -18,12 +29,11 @@ class VectorStore:
     def __init__(self, collection_name: str = "book_rag_collection", persist_directory: str = "./chroma_db"):
         self.persist_directory = persist_directory
         self.client = chromadb.PersistentClient(path=self.persist_directory)
-        
-        # Initialize with a dummy embedding function for now.
-        # This will be replaced with the actual Gemini embedding function during ingestion.
+
+        # Initialize with the actual Gemini embedding function
         self.collection = self.client.get_or_create_collection(
             name=collection_name,
-            embedding_function=PlaceholderEmbeddingFunction() # Will be dynamically set during ingestion
+            embedding_function=GeminiEmbeddingFunction()
         )
 
     def add_documents(self, documents: List[Dict[str, Union[str, List[float]]]]) -> None:

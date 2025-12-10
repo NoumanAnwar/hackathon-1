@@ -1,4 +1,6 @@
 ---
+id: chapter1
+title: ROS 2 Fundamentals
 sidebar_position: 1
 ---
 

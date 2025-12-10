@@ -5,6 +5,10 @@ from rag_backend.src.services.embedding_service import EmbeddingService
 from rag_backend.src.services.vector_store import VectorStore
 import google.generativeai as genai
 
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv()
+
 # Configure Gemini API
 try:
     api_key = os.getenv("GEMINI_API_KEY")
@@ -40,7 +44,7 @@ async def query_rag(request: QueryRequest):
 
     try:
         # 1. Generate embedding for the user query
-        query_embedding = await embedding_service.get_embedding(request.query)
+        query_embedding = embedding_service.get_embedding(request.query)
 
         # 2. Retrieve relevant documents from the vector store
         retrieved_docs = vector_store.query_documents(query_embedding, n_results=5) # Get top 5 results

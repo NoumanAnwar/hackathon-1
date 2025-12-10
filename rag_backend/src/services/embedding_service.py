@@ -14,32 +14,32 @@ class EmbeddingService:
             raise ValueError("GEMINI_API_KEY environment variable not set.")
         genai.configure(api_key=api_key)
 
-    async def get_embedding(self, text: str) -> List[float]:
+    def get_embedding(self, text: str) -> List[float]:
         """
         Generates an embedding for a single piece of text.
         """
         if not text:
             return []
-        
+
         # The embedding API expects a list of texts, even for a single text.
         # It also requires the `task_type` parameter.
-        result = await genai.embed_content(
+        result = genai.embed_content(
             model=self.model_name,
             content=[text],
-            task_type="RETRIEVAL_DOCUMENT" # or RETRIEVAL_QUERY depending on usage
+            task_type="RETRIEVAL_QUERY" # Using RETRIEVAL_QUERY for user queries
         )
         # The result contains embeddings for all texts in the input list.
         # We only sent one, so we take the first one.
         return result['embedding'][0]
 
-    async def get_embeddings(self, texts: List[str]) -> List[List[float]]:
+    def get_embeddings(self, texts: List[str]) -> List[List[float]]:
         """
         Generates embeddings for a list of texts.
         """
         if not texts:
             return []
-        
-        result = await genai.embed_content(
+
+        result = genai.embed_content(
             model=self.model_name,
             content=texts,
             task_type="RETRIEVAL_DOCUMENT"

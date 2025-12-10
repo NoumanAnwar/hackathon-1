@@ -7,7 +7,8 @@ dependencies = [
     "uvicorn[standard]",
     "chromadb",
     "google-generativeai", # Corrected to the actual Google AI SDK for Python
-    "pydantic"
+    "pydantic",
+    "python-dotenv"
 ]
 
 [tool.rye]
